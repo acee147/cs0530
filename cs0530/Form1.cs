@@ -27,6 +27,17 @@ namespace cs0530
             {
                 vy = -vy;
             }
+            if(label1.Top<= 437 && label1.Left <= 763)
+            {
+                if (label1.Left >= 763)
+                {
+                    vx = -vx;
+                }
+                if (label1.Top >= 437)
+                {
+                    vy = -vy;
+                }
+            }
         }
     }
 }
