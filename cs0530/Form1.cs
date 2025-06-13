@@ -2,20 +2,20 @@ namespace cs0530
 {
     public partial class Form1 : Form
     {
-        int []vx = new int[3];
-        int []vy = new int[3];
+        int[] vx = new int[3];
+        int[] vy = new int[3];
         int counter = 0;
-      
+
         static Random random = new Random();
         public Form1()
         {
             InitializeComponent();
-            vx[0] = random.Next(-10, 11);
-            vy[0] = random.Next(-10, 11);
-            vx[1] = random.Next(-100, 11);
-            vy[1]= random.Next(-100, 11); 
-            vx[2]= random.Next(-10,11);
-            vx[2] = random.Next(-100, 110);
+            for(int i=0;i<3;i++)
+            {
+                vx[i] = random.Next(-10, 11);
+                vy[i] = random.Next(-10, 11);
+            }
+        
             label1.Left = random.Next(ClientSize.Width - label1.Width);
             label1.Top = random.Next(ClientSize.Height - label1.Height);
             label4.Left = random.Next(ClientSize.Width - label1.Width);
@@ -43,11 +43,11 @@ namespace cs0530
 
             label2.Left = fpos.X - (label2.Width / 2);
             label2.Top = fpos.Y - (label2.Height / 2);
-            
+
 
             label4.Left += vx[1];
             label4.Top += vy[1];
-           label5.Left += vx[2];
+            label5.Left += vx[2];
             label5.Top += vx[2];
 
             label1.Left += vx[0];
@@ -74,14 +74,15 @@ namespace cs0530
             {
                 timer1.Enabled = false;
             }
-            if(label4.Left < 0) {
+            if (label4.Left < 0)
+            {
                 vx[1] = Math.Abs(vx[1]);
             }
             if (label4.Right > ClientSize.Width)
             {
                 vx[1] = -Math.Abs(vx[1]);
             }
-            if(label4.Top < 0)
+            if (label4.Top < 0)
             {
                 vy[1] = Math.Abs(vy[1]);
             }
@@ -98,12 +99,12 @@ namespace cs0530
                 vx[2] = -Math.Abs(vx[2]);
             }
             if (label5.Top < 0)
-            { 
+            {
                 vy[2] = Math.Abs(vy[2]);
             }
             if (label5.Bottom > ClientSize.Height)
             { vy[2] = -Math.Abs(vy[2]); }
-                
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -115,6 +116,16 @@ namespace cs0530
         private void label5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                {
+                    MessageBox.Show($"{i}");
+                }
+            }
         }
     }
 }
